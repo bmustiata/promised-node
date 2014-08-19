@@ -1,0 +1,35 @@
+{
+    "name": "promised-node",
+    "description": "Allow loading existing node modules with callbacks as promises modules.",
+    "author": [{
+        "name" : "Bogdan Mustiata",
+        "email" : "bogdan.mustiata@gmail.com"
+    }],
+    "version": "0.1.0",
+    "keywords": [
+	"node",
+	"promise",
+	"promises"
+	"promised-node",
+        "blinkts-lang",
+        "blinkts.net",
+        "blinkts",
+    ],
+    "main": "./lib/promised-node.js",
+    "bugs": {
+        "url": "https://github.com/bmustiata/promised-node/issues"
+    },
+    "licenses": [
+        {
+            "type": "BSD",
+            "url": "https://github.com/bmustiata/promised-node/blob/master/LICENSE"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bmustiata/promised-node.git"
+    },
+    "readme": "The way node API should have looked like.",
+    "readmeFilename": "README.md",
+    "homepage": "https://github.com/bmustiata/promised-node/blob/master/README.md"
+}
