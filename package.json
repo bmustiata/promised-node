@@ -5,7 +5,7 @@
         "name" : "Bogdan Mustiata",
         "email" : "bogdan.mustiata@gmail.com"
     }],
-    "version": "0.1.1",
+    "version": "0.1.2",
     "dependencies" : {
         "blinkts-lang" : "0.1.5"
     },
