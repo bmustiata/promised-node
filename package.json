@@ -5,7 +5,7 @@
         "name" : "Bogdan Mustiata",
         "email" : "bogdan.mustiata@gmail.com"
     }],
-    "version": "0.1.2",
+    "version": "0.1.3",
     "dependencies" : {
         "blinkts-lang" : "0.1.5"
     },
@@ -32,7 +32,7 @@
         "type": "git",
         "url": "https://github.com/bmustiata/promised-node.git"
     },
-    "readme": "promised-node\n=============\n\nAllow loading existing node modules with callbacks as promises modules.\n\nHow it works is by scanning the module for functions that have the same name\nalso with a Sync suffix (e.g. readdir and readdirSync), and then replaces them\nwith a function that doesn\'t have the last callback parameter, but\ninstead returns a promise.\n\nPromises are fully conformant to the APlus promises spec:\nhttps://github.com/promises-aplus/promises-spec\n\nHere is an example:\n\n```javascript\nvar fs = require("promised-node").load("fs");\n\nfs.readdir(".").then(function(files) {\n    files.forEach(function(name) {\n        console.log(name);\n    });\n});\n```\nIf the callback method receives multiple arguments, they will be sent\ninto an Array into the fulfillment of the promise:\n\n```javascript\nvar fs = require("promised-node").load("fs");\n\nvar fd;\n\nfs.open("test.txt", "w").then(function(_fd) {         // open the file\n    fd = _fd;\n    return fs.write(fd, new Buffer("test"), 0, 4, 0); // write 4 bytes\n}).then(function(data) {\n    console.log("written: ", data);\n    return fs.close(fd);                              // close the file\n}).then(null, function(e) {\n    console.log("Something terrible happened: ", e);\n});\n```\n\nAs you can notice, since now we\'re using promises, writing async code\nbecomes far simpler now.\n",
+    "readme": "promised-node\n=============\n\nAllow loading existing node modules with callbacks as promises modules.\n\nHow it works is by scanning the module for functions that have the same name\nalso with a Sync suffix (e.g. readdir and readdirSync), and then replaces them\nwith a function that doesn't have the last callback parameter, but\ninstead returns a promise.\n\nPromises are fully conformant to the APlus promises spec:\nhttps://github.com/promises-aplus/promises-spec\n\nHere is an example:\n\n```javascript\nvar fs = require(\"promised-node\").load(\"fs\");\n\nfs.readdir(\".\").then(function(files) {\n    files.forEach(function(name) {\n        console.log(name);\n    });\n});\n```\nIf the callback method receives multiple arguments, they will be sent\ninto an Array into the fulfillment of the promise:\n\n```javascript\nvar fs = require(\"promised-node\").load(\"fs\");\n\nvar fd;\n\nfs.open(\"test.txt\", \"w\").then(function(_fd) {         // open the file\n    fd = _fd;\n    return fs.write(fd, new Buffer(\"test\"), 0, 4, 0); // write 4 bytes\n}).then(function(data) {\n    console.log(\"written: \", data);\n    return fs.close(fd);                              // close the file\n}).then(null, function(e) {\n    console.log(\"Something terrible happened: \", e);\n});\n```\n\nAs you can notice, since now we're using promises, writing async code\nbecomes far simpler now.\n",
     "readmeFilename": "README.md",
     "homepage": "https://github.com/bmustiata/promised-node/blob/master/README.md"
 }
