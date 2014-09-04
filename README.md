@@ -23,4 +23,23 @@ fs.readdir(".").then(function(files) {
 });
 ```
 If the callback method receives multiple arguments, they will be sent
-into an Array into the fulfillment of the promise.
+into an Array into the fulfillment of the promise:
+
+```javascript
+var fs = require("promised-node").load("fs");
+
+var fd;
+
+fs.open("test.txt", "w").then(function(_fd) {         // open the file
+    fd = _fd;
+    return fs.write(fd, new Buffer("test"), 0, 4, 0); // write 4 bytes
+}).then(function(data) {
+    console.log("written: ", data);
+    return fs.close(fd);                              // close the file
+}).then(null, function(e) {
+    console.log("Something terrible happened: ", e);
+});
+```
+
+As you can notice, since now we're using promises, writing async code
+becomes far simpler now.
