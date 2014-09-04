@@ -22,4 +22,5 @@ fs.readdir(".").then(function(files) {
     });
 });
 ```
-
+If the callback method receives multiple arguments, they will be sent
+into an Array into the fulfillment of the promise.
